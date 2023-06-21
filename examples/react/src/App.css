@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #282c34;
+  color: #61dafb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,9 +38,12 @@ input {
   margin: 0 auto;
 }
 
-.App-link,
+a,
+p,
 li::marker {
   color: #61dafb;
+}
+li::marker {
   list-style-position: inside;
 }
 

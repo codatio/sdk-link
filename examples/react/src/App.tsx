@@ -21,9 +21,8 @@ function App() {
           onConnection: (connection) =>
             alert(`On connection callback - ${connection}`),
           onClose: () => setAppOpen(false),
-          onFinish: () => alert("On finish callback!!"),
+          onFinish: () => alert("On finish callback"),
           onError: (error) => alert(`On error callback -${error}`),
-          baseUrl: "https://link-api.codat.io",
         },
       });
     }
@@ -31,19 +30,26 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        <a
-          className="App-link"
-          target="_blank"
-          href="https://github.com/codatio/codat-docs/blob/embedded-link-enhancements/docs/auth-flow/authorize-embedded-link.md#get-started-with-react"
-        >
-          Link SDK X Create React App
-        </a>
-      </h1>
+      <header>
+        <h1>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/codatio/sdk-link/tree/main/examples/react/README.md"
+          >
+            Link SDK X Create React App
+          </a>
+        </h1>
+        <p>
+          An example of embedding Link SDK within a brand new create-react-app
+          project
+        </p>
+      </header>
+
       <div className="link-wrapper">
         <ol>
           <li>
-            <a className="App-link" href="#" target="_blank">
+            <a href="#" target="_blank" rel="noreferrer">
               Create a company
             </a>
           </li>
@@ -60,7 +66,7 @@ function App() {
             }}
           />
           <button onClick={() => setAppOpen(!appOpen)}>
-            {appOpen ? "Close" : "Open"}
+            {appOpen ? "Exit" : "Start authing"}
           </button>
           <div>
             {appOpen && (

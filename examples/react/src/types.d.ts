@@ -16,9 +16,6 @@ declare module "https://link-sdk.codat.io" {
     onError: (args: ErrorCallbackArgs) => void;
     onFinish: () => void;
     onConnection: (args: ConnectionCallbackArgs) => void;
-
-    // undocumented props go here 👇
-    baseUrl: string;
   };
 
   export declare class CodatLink {

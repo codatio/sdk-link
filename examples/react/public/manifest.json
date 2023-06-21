@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Link SDK x CRA",
+  "name": "Link SDK React Example",
   "icons": [
     {
       "src": "favicon.ico",
