@@ -19,10 +19,10 @@ function App() {
         props: {
           companyId,
           onConnection: (connection) =>
-            alert(`On connection callback - ${connection}`),
+            alert(`On connection callback - ${connection.connectionId}`),
           onClose: () => setAppOpen(false),
           onFinish: () => alert("On finish callback"),
-          onError: (error) => alert(`On error callback -${error}`),
+          onError: (error) => alert(`On error callback -${error.message}`),
         },
       });
     }
