@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link SDK X JavaScript</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="target" class="link-sdk-wrapper" />
+    <div className="App">
+      <header>
+        <h1>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/codatio/sdk-link/tree/main/examples/javascript/README.md"
+          >
+            Link SDK X JavaScript
+          </a>
+        </h1>
+        <p>
+          An example of embedding Link SDK within a brand new HTML, CSS and
+          JavaScript project
+        </p>
+      </header>
+
+      <div className="link-wrapper">
+        <ol>
+          <li>
+            <a href="#" target="_blank" rel="noreferrer"> Create a company </a>
+          </li>
+          <li>
+            <a>Paste the company ID below</a>
+          </li>
+        </ol>
+        <div className="input-wrapper">
+          <input value="{companyId}" />
+          <button>Start Authing</button>
+          <div>
+            <div className="link-sdk-modal" ref="{setComponentMount}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script type="module" src="./link-sdk.js" /> -->
+  </body>
+</html>
