@@ -20,6 +20,7 @@ input {
   position: absolute;
   inset: 0;
   margin: auto;
+  display: none;
 }
 
 a,

@@ -23,23 +23,28 @@
       </p>
     </header>
 
-    <div class="link-wrapper">
+    <div>
       <ol>
         <li>
-          <a href="#" target="_blank" rel="noreferrer"> Create a company </a>
+          <a
+            href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Create a company
+          </a>
         </li>
         <li>
           <a>Paste the company ID below</a>
         </li>
       </ol>
       <div class="input-wrapper">
-        <input placeholder="enter smth" />
-        <button>Start Authing</button>
-        <div>
-          <div id="target" class="link-sdk-modal" />
-        </div>
+        <input id="company-id-input" placeholder="Provide a valid company ID" />
+        <button id="modal-button">Start authing</button>
       </div>
+
+      <div id="target" class="link-sdk-modal" />
     </div>
-    <script type="module" src="./link-sdk.js" />
+    <script type="module" src="./link-sdk.js" defer />
   </body>
 </html>
