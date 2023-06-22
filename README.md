@@ -2,6 +2,7 @@
 
 ## <a name='create-company'>Create a new company</a>
 
+All of these examples will require you to have created a company and retrieved its `companyId`. You can do this via the [Portal](https://app.codat.io/).
 Visit [codat.io/companies](https://app.codat.io/companies)
 
 
