@@ -8,12 +8,9 @@ new CodatLink({
   props: {
     companyId,
     onConnection: (connection) =>
-      alert(`On connection callback :
-             ${connection.connectionId}`),
+      alert(`On connection callback : ${connection.connectionId}`),
     onClose: () => setAppOpen(false),
     onFinish: () => alert("On finish callback"),
-    onError: (error) =>
-      alert(`On error callback :
-            ${error.message}`),
+    onError: (error) => alert(`On error callback : ${error.message}`),
   },
 });
