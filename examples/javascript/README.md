@@ -24,5 +24,6 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 
 ### `Starting the project`
 
-Open index.html file in your browser of choice, or open with VSCode `LiveServer` extension.
+1. Install with NPM `npm install`.
+2. Run `npm run start`.
 
