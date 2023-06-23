@@ -46,7 +46,7 @@ function App() {
         </p>
       </header>
 
-      <div className="link-wrapper">
+      <div>
         <ol>
           <li>
             <a
