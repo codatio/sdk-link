@@ -13,13 +13,18 @@ input {
   width: 250px;
 }
 
-.link-sdk-modal {
+.modal-wrapper {
   width: 460px;
   height: 840px;
-  position: fixed;
+  position: absolute;
   inset: 0;
   margin: auto;
   pointer-events: none;
+  box-sizing: border-box;
+}
+
+.modal {
+  height: 95%;
 }
 
 a,
