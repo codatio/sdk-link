@@ -16,11 +16,10 @@ input {
 .link-sdk-modal {
   width: 460px;
   height: 840px;
-  z-index: 1;
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: auto;
-  display: none;
+  pointer-events: none;
 }
 
 a,

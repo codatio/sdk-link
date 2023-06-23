@@ -1,15 +1,17 @@
 import { CodatLink } from "https://link-sdk.codat.io";
 
 let companyId = "";
-let isModalOpen = true;
-let linkInitiated = false;
 
 const linkSdkTarget = document.getElementById("target");
 const submitButton = document.getElementById("modal-button");
 const companyIdInput = document.getElementById("company-id-input");
 
-const initiateLink = () => {
-  linkInitiated = true;
+const handleTextInput = (e) => {
+  companyId = e.target.value;
+};
+
+const openModal = () => {
+  linkSdkTarget.style.pointerEvents = "initial";
   new CodatLink({
     target: linkSdkTarget,
     props: {
@@ -23,29 +25,9 @@ const initiateLink = () => {
   });
 };
 
-const toggleButtonText = () =>
-  (submitButton.innerText = isModalOpen ? "Exit" : "Start authing");
-
-const toggleLinkSdkDisplay = () => {
-  const display = isModalOpen ? "block" : "none";
-  linkSdkTarget.style.display = display;
-};
-
-const handleTextInput = (e) => {
-  companyId = e.target.value;
-};
-
-const openModal = () => {
-  if (!linkInitiated) initiateLink();
-  isModalOpen = true;
-  toggleButtonText();
-  toggleLinkSdkDisplay();
-};
-
 const closeCallback = () => {
-  isModalOpen = false;
-  toggleButtonText();
-  toggleLinkSdkDisplay();
+  linkSdkTarget.style.pointerEvents = "none";
+  linkSdkTarget.removeChild(linkSdkTarget.children[0]);
 };
 
 companyIdInput.addEventListener("change", handleTextInput);
