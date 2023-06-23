@@ -14,7 +14,9 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
    linkSDK.id = 'target';
    document.body.appendChild(linkSDK);
    ``` 
-2.  **Consume LinkSDK within type="module" script** - you can copy contents from the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.mjs" target="_blank">`CodatLink.mjs`</a> file to an appropriate location in your application. Make sure you provide a valid target area for LinkSDK, valid company ID and set up callbacks.
+
+   We suggest to set target div area for LinkSDK as `width: 460px` and `height: 840px`.
+2.  **Consume LinkSDK within type="module" script** - you can copy contents from the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.mjs" target="_blank">`CodatLink.mjs`</a> file to an appropriate location in your application. Make sure you provide a valid target area for LinkSDK, valid companyId and set up callbacks.
 3. **If using TypeScript - extend your type declarations with our types** - download the <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> file, then copy and paste its contents into a new or existing `.d.ts` file.
 4. Conditional step:
   1. If you're using content security policy (CSP) headers, you must edit the headers:
