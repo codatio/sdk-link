@@ -75,9 +75,11 @@ function App() {
         </div>
       </div>
       <img src={logo} className="App-logo" alt="logo" />
-      <div className="modal-wrapper">
-        {appOpen && <div className="modal" ref={setComponentMount}></div>}
-      </div>
+      {appOpen && 
+        <div className="modal-wrapper">
+          <div className="modal" ref={setComponentMount}></div>
+        </div>
+      }
     </div>
   );
 }

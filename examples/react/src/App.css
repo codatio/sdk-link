@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -21,14 +25,13 @@ input {
   display: flex;
   justify-content: center;
   position: fixed;
+  inset: 0;
 }
 
 .modal {
   width: 460px;
   height: 840px;
   max-height: 95%;
-  margin: auto;
-  inset: 0;
 }
 
 a,
