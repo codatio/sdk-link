@@ -21,11 +21,11 @@ input {
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  inset: 0;
   justify-content: center;
-  margin: auto;
-  pointer-events: none;
   position: fixed;
+  pointer-events: none;
+  inset: 0;
+  margin: auto;
 }
 
 .modal {

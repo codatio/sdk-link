@@ -72,14 +72,12 @@ function App() {
           <button onClick={() => setAppOpen(!appOpen)}>
             {appOpen ? "Exit" : "Start authing"}
           </button>
-          <div>
-            {appOpen && (
-              <div className="link-sdk-modal" ref={setComponentMount}></div>
-            )}
-          </div>
         </div>
       </div>
       <img src={logo} className="App-logo" alt="logo" />
+      <div className="modal-wrapper">
+        {appOpen && <div className="modal" ref={setComponentMount}></div>}
+      </div>
     </div>
   );
 }
