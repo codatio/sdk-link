@@ -6,10 +6,10 @@ body {
   align-items: center;
   background-color: #f0dc4e;
   color: #2e302c;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  min-height: 100vh;
   text-align: center;
 }
 
@@ -35,11 +35,11 @@ input {
 }
 
 a,
-p {
+p,
+li::marker {
   color: #2e302c;
 }
 
 li::marker {
-  color: #2e302c;
   list-style-position: inside;
 }
