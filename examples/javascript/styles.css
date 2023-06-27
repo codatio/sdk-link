@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background-color: #f0dc4e;
+  color: #2e302c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+input {
+  width: 250px;
+}
+
+.modal-wrapper {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+}
+
+.modal {
+  width: 460px;
+  height: 840px;
+  max-height: 95%;
+}
+
+a,
+p,
+li::marker {
+  color: #2e302c;
+}
+
+li::marker {
+  list-style-position: inside;
+}
