@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   const [companyId, setCompanyId] = useState("");
-  const [appOpen, setAppOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
     null
   );
@@ -20,7 +20,7 @@ function App() {
           companyId,
           onConnection: (connection) =>
             alert(`On connection callback - ${connection.connectionId}`),
-          onClose: () => setAppOpen(false),
+          onClose: () => setModalOpen(false),
           onFinish: () => alert("On finish callback"),
           onError: (error) => alert(`On error callback -${error.message}`),
         },
@@ -46,10 +46,14 @@ function App() {
         </p>
       </header>
 
-      <div className="link-wrapper">
+      <div>
         <ol>
           <li>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+              target="_blank"
+              rel="noreferrer"
+            >
               Create a company
             </a>
           </li>
@@ -60,22 +64,22 @@ function App() {
         <div className="input-wrapper">
           <input
             value={companyId}
-            data-testid="company-id-input"
+            placeholder="Provide a valid company ID"
             onChange={(e) => {
               setCompanyId(e.target.value);
             }}
           />
-          <button onClick={() => setAppOpen(!appOpen)}>
-            {appOpen ? "Exit" : "Start authing"}
+          <button onClick={() => setModalOpen(!modalOpen)}>
+            {modalOpen ? "Exit" : "Start authing"}
           </button>
-          <div>
-            {appOpen && (
-              <div className="link-sdk-modal" ref={setComponentMount}></div>
-            )}
-          </div>
         </div>
       </div>
       <img src={logo} className="App-logo" alt="logo" />
+      {modalOpen && (
+        <div className="modal-wrapper">
+          <div className="modal" ref={setComponentMount}></div>
+        </div>
+      )}
     </div>
   );
 }
