@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   const [companyId, setCompanyId] = useState("");
-  const [appOpen, setAppOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
     null
   );
@@ -20,7 +20,7 @@ function App() {
           companyId,
           onConnection: (connection) =>
             alert(`On connection callback - ${connection.connectionId}`),
-          onClose: () => setAppOpen(false),
+          onClose: () => setModalOpen(false),
           onFinish: () => alert("On finish callback"),
           onError: (error) => alert(`On error callback -${error.message}`),
         },
@@ -69,17 +69,17 @@ function App() {
               setCompanyId(e.target.value);
             }}
           />
-          <button onClick={() => setAppOpen(!appOpen)}>
-            {appOpen ? "Exit" : "Start authing"}
+          <button onClick={() => setModalOpen(!modalOpen)}>
+            {modalOpen ? "Exit" : "Start authing"}
           </button>
         </div>
       </div>
       <img src={logo} className="App-logo" alt="logo" />
-      {appOpen && 
+      {modalOpen && (
         <div className="modal-wrapper">
           <div className="modal" ref={setComponentMount}></div>
         </div>
-      }
+      )}
     </div>
   );
 }
