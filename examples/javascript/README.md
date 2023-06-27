@@ -1,7 +1,9 @@
 # An example project of embedding Link SDK within a brand new HTML, CSS and JavaScript application
 
 ## Company ID
-You will need to have created a company. 
+You need to have created a company first. 
+
+See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank">readme guide</a> on creating a new company.
 
 See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank">readme guide</a> on creating a new company.
 
