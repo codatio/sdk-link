@@ -7,6 +7,8 @@ import {
 } from "https://link-sdk.codat.io";
 import React, { useEffect, useState } from "react";
 
+import styles from "./CodatLink.module.css";
+
 export interface CodatLinkProps {
   companyId: string;
   onConnection: (args: ConnectionCallbackArgs) => void;
@@ -42,13 +44,7 @@ export const CodatLinkComponent: React.FC<CodatLinkProps> = (props) => {
 
   return (
     <div
-      className="App"
-      style={{
-        // CodatLink will take up 100% of the container width and height.
-        // We recommend a size of 460px x 840px.
-        width: "460px",
-        height: "840px",
-      }}
+      className={`App ${styles.modalWrapper}`}
       data-testId="test"
       ref={setComponentMount}
     ></div>
