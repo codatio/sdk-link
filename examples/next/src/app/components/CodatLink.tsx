@@ -5,7 +5,7 @@ import {
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
 } from "https://link-sdk.codat.io";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./CodatLink.module.css";
 
@@ -43,10 +43,6 @@ export const CodatLinkComponent: React.FC<CodatLinkProps> = (props) => {
   }, [componentMount]);
 
   return (
-    <div
-      className={`App ${styles.modalWrapper}`}
-      data-testId="test"
-      ref={setComponentMount}
-    ></div>
+    <div className={`App ${styles.modalWrapper}`} ref={setComponentMount}></div>
   );
 };

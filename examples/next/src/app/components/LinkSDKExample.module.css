@@ -1,0 +1,14 @@
+.inputWrapper {
+  padding: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modalWrapper {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+}

@@ -12,28 +12,11 @@
   padding: 1rem 0;
 }
 
-.inputWrapper {
-  padding: 1rem 0;
-  ;
-  display: flex;
-  gap: .5rem;
-}
-
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
-}
-
-.modalWrapper {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  inset: 0;
-  z-index: 2;
+  gap: 0.5rem;
 }
 
 .description {
@@ -88,7 +71,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -128,10 +111,6 @@
     font-size: 0.8rem;
   }
 
-  .description a {
-    padding: 1rem;
-  }
-
   .description p,
   .description div {
     display: flex;
@@ -146,9 +125,11 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        rgb(var(--background-end-rgb)) 40%);
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
     z-index: 1;
   }
 }
