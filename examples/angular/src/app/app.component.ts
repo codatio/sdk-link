@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  companyId = 'c17577c7-48cd-44bf-ad63-e84729e54519';
+  companyId = '';
   linkOpen = false;
 
   openLink() {
