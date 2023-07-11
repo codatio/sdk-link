@@ -31,7 +31,10 @@ export class CodatLinkComponent implements AfterViewInit {
             onClose: () => this.close.emit(),
             onConnection: (connection) =>
               alert(`On connection callback : ${connection.connectionId}`),
-            onError: (error) => alert(`On error callback : ${error.message}`),
+            onError: (error) => {
+              alert(`On error callback : ${error.message}`);
+              this.close.emit();
+            },
             onFinish: () => alert('On finish callback'),
           },
         });

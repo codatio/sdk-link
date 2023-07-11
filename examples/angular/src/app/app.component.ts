@@ -10,7 +10,9 @@ export class AppComponent {
   linkOpen = false;
 
   openLink() {
-    this.linkOpen = true;
+    if (this.companyId) {
+      this.linkOpen = true;
+    }
   }
 
   closeLink() {
