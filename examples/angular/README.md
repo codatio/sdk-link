@@ -6,7 +6,7 @@ This project is an example of using Link SDK within a brand new Angular applicat
 
 ## Running this project
 
-Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Install dependencies using `npm install`. Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 
 ## Company ID
