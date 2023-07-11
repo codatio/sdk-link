@@ -17,6 +17,11 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 ## Get started with Angular
 
 1. Copy <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> to the `/src` directory.
-1. **Create a component that mounts the SDK``
-   1. See the <a href="./src/app/codat-link/">codat link</a> folder for an example module.
-2. 
+2. Create a browserslist using `ng generate config browserslist` and set its content to the following:
+    ```
+    last 1 Chrome versions 
+    ```
+3. In `tsconfig.json`, set `target` and `module` to `"ESNext"`.
+4. Create a component that mounts the SDK
+    1. See the <a href="./src/app/codat-link/">codat link</a> folder for an example module.
+5. 
