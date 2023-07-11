@@ -13,13 +13,12 @@ You need to have created a company first. See <a href="https://github.com/codati
    document.body.appendChild(linkSDK);
    ``` 
 
-   We suggest to set target div for LinkSDK to have `width: 460px` and `height: 840px`.
-2.  **Consume LinkSDK within `type="module"` script** - you can copy contents from the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.mjs" target="_blank">`CodatLink.mjs`</a> file to an appropriate location in your application. Make sure you provide a valid target area for LinkSDK, valid companyId, and set up callbacks.
+   We suggest to set the target div for LinkSDK to have `width: 460px` and `height: 840px`.
+2.  **Consume LinkSDK within `type="module"` script** - you can copy the contents from the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.mjs" target="_blank">`CodatLink.mjs`</a> file to an appropriate location in your application. Make sure you provide a valid target element for LinkSDK, valid companyId, and set up callbacks.
 3. **If using TypeScript - extend your type declarations with our types** - download the <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> file, then copy and paste its contents into a new or existing `.d.ts` file.
-4. Conditional step:
-  1. If you're using content security policy (CSP) headers, you must edit the headers:
-   * Add `*.codat.io` to all of `(script-src, style-src, font-src, connect-src, img-src)`, or to `default-src`.
-   * Add `unsafe-inline` to `style-src`. Do *not* use a hash because this can change at any time without warning.
+4. If you are using content security policy (CSP) headers, you must edit the headers:
+      * Add `*.codat.io` to all of `(script-src, style-src, font-src, connect-src, img-src)`, or to `default-src`.
+      * Add `unsafe-inline` to `style-src`. Do *not* use a hash because this can change at any time without warning.
   
 
 ### `Starting the project`
