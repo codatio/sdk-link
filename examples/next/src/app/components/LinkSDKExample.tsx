@@ -1,10 +1,6 @@
 import { useState } from "react";
-import dynamic from "next/dynamic";
+import { CodatLinkComponent } from "./CodatLink";
 import styles from "./LinkSDKExample.module.css";
-
-const CodatLink = dynamic(() =>
-  import("./CodatLink").then((mod) => mod.CodatLinkComponent)
-);
 
 const LinkSDKExample = () => {
   const [companyId, setCompanyId] = useState("");
@@ -24,7 +20,7 @@ const LinkSDKExample = () => {
       </button>
       {modalOpen && (
         <div className={styles.modalWrapper}>
-          <CodatLink
+          <CodatLinkComponent
             companyId={companyId}
             onConnection={(connection) =>
               alert(`On connection callback - ${connection.connectionId}`)

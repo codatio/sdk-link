@@ -1,7 +1,6 @@
 "use client";
 
-import {
-  CodatLink,
+import type {
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
 } from "https://link-sdk.codat.io";
@@ -27,15 +26,17 @@ export const CodatLinkComponent: React.FC<CodatLinkProps> = (props) => {
   useEffect(() => {
     const target = componentMount;
     if (target && target.children.length === 0) {
-      new CodatLink({
-        target,
-        props: {
-          companyId,
-          onConnection,
-          onClose,
-          onFinish,
-          onError,
-        },
+      eval(`import("https://link-sdk.codat.io")`).then(({ CodatLink }: any) => {
+        new CodatLink({
+          target,
+          props: {
+            companyId,
+            onConnection,
+            onClose,
+            onFinish,
+            onError,
+          },
+        });
       });
     }
     // CodatLink does not support changing props after initialisation.
