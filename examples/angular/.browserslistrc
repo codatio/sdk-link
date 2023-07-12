@@ -1,0 +1,5 @@
+# For Link SDK, this file must be set to the following in order
+#   to prevent build errors from webpack thinking dynamic imports
+#   are not supported.
+
+last 1 Chrome versions 

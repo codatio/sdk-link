@@ -1,0 +1,17 @@
+.link-sdk-target {
+  width: 460px;
+  height: 840px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
