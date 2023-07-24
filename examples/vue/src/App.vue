@@ -49,10 +49,13 @@ const handleOnError = (error: ErrorCallbackArgs) => {
         </li>
         <li>Paste the company ID below</li>
       </ol>
-      <input type="text" v-model="companyId" placeholder="Provide a valid company ID" />
-      <button @click="modalOpen = !modalOpen">
-        {{ modalOpen ? 'Exit' : 'Start authing' }}
-      </button>
+      <div class="inputWrapper">
+        <input type="text" v-model="companyId" placeholder="Provide a valid company ID" />
+        <button @click="modalOpen = !modalOpen">
+          {{ modalOpen ? 'Exit' : 'Start authing' }}
+        </button>
+      </div>
+
     </div>
     <div v-if="modalOpen" class="modalWrapper">
       <CodatLinkComponent :company-id="companyId" :on-connection="handleOnConnection" :on-close="handleOnClose"
@@ -92,5 +95,10 @@ const handleOnError = (error: ErrorCallbackArgs) => {
   position: fixed;
   inset: 0;
   z-index: 2;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: .5rem
 }
 </style>
