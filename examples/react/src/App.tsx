@@ -1,5 +1,9 @@
-import { CodatLink } from "https://link-sdk.codat.io";
-import { useState, useEffect } from "react";
+import {
+  ConnectionCallbackArgs,
+  ErrorCallbackArgs,
+} from "https://link-sdk.codat.io";
+import { useState } from "react";
+import { CodatLinkReact } from "./CodatLinkReact";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -7,26 +11,13 @@ import "./App.css";
 function App() {
   const [companyId, setCompanyId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
-  const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
-    null
-  );
 
-  useEffect(() => {
-    const target = componentMount;
-    if (target && target.children.length === 0) {
-      new CodatLink({
-        target,
-        props: {
-          companyId,
-          onConnection: (connection) =>
-            alert(`On connection callback - ${connection.connectionId}`),
-          onClose: () => setModalOpen(false),
-          onFinish: () => alert("On finish callback"),
-          onError: (error) => alert(`On error callback -${error.message}`),
-        },
-      });
-    }
-  }, [componentMount, companyId]);
+  const onConnection = (connection: ConnectionCallbackArgs) =>
+    alert(`On connection callback - ${connection.connectionId}`);
+  const onClose = () => setModalOpen(false);
+  const onFinish = () => alert("On finish callback");
+  const onError = (error: ErrorCallbackArgs) =>
+    alert(`On error callback - ${error.message}`);
 
   return (
     <div className="App">
@@ -76,9 +67,13 @@ function App() {
       </div>
       <img src={logo} className="App-logo" alt="logo" />
       {modalOpen && (
-        <div className="modal-wrapper">
-          <div className="modal" ref={setComponentMount}></div>
-        </div>
+        <CodatLinkReact
+          companyId={companyId}
+          onConnection={onConnection}
+          onError={onError}
+          onClose={onClose}
+          onFinish={onFinish}
+        />
       )}
     </div>
   );
