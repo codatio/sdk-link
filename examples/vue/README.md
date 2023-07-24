@@ -1,46 +1,36 @@
-# vue
+# An example project of embedding Link SDK within a brand new create-vue application
 
-This template should help get you started developing with Vue 3 in Vite.
+## Running this project
 
-## Recommended IDE Setup
+### `npm run dev`
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Runs the app in the development mode.\
+Open [http://127.0.0.1:5174/](http://127.0.0.1:5174/) to view it in the browser.
 
-## Type Support for `.vue` Imports in TS
+## Company ID
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+You need to have created a company first.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank">readme guide</a> on creating a new company.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Get started with Vue
 
-## Customize configuration
+For full instructions on getting started, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link#get-started).
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. **Create a component that mounts the SDK.** See the <a href="./src/components/">components</a> folder for an example module.
+2. **Conditional steps**
 
-## Project Setup
+   1. **Extend your type declarations with our types (if using TS).** - download the <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> file, then copy and paste its contents into a new or existing `.d.ts` file.
 
-```sh
-npm install
-```
+   2. **Update browserslist.** - If a `browserslist` entry exists in your `package.json` file, you may need to update it with the following entries for production:
+      ```js
+        "production": [
+          ">0.2% and supports es6-module",
+          "not dead",
+          "not and_uc >= 0"
+        ],
+      ```
+   3. **Update CSP headers.** If you're using content security policy (CSP) headers, you must edit the headers:
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+   - Add `*.codat.io` to all of `(script-src, style-src, font-src, connect-src, img-src)`, or to `default-src`.
+   - Add `unsafe-inline` to `style-src`. Do _not_ use a hash because this can change at any time without warning.
