@@ -2,13 +2,22 @@
   import welcome from "./assets/svelte-welcome.webp";
   import Header from "./lib/Header.svelte";
   import welcome_fallback from "./assets/svelte-welcome.png";
-  import LinkSdk from "./lib/CodatLink.svelte";
   import "./styles.css";
+  import { CodatLinkAction } from "./lib/CodatLinkAction";
+  import type {
+    ConnectionCallbackArgs,
+    ErrorCallbackArgs,
+  } from "https://link-sdk.codat.io";
 
   let modalOpen = false;
   let companyId = "";
 
-  const closeModal = () => (modalOpen = false);
+  const onConnection = (connection: ConnectionCallbackArgs) =>
+    alert(`On connection callback - ${connection.connectionId}`);
+  const onClose = () => (modalOpen = false);
+  const onFinish = () => alert("On finish callback");
+  const onError = (error: ErrorCallbackArgs) =>
+    alert(`On error callback - ${error.message}`);
 </script>
 
 <div class="app">
@@ -56,7 +65,18 @@
       </div>
     </div>
     {#if modalOpen}
-      <LinkSdk {companyId} {closeModal} />
+      <div class="modal-wrapper">
+        <div
+          class="modal"
+          use:CodatLinkAction={{
+            companyId,
+            onConnection,
+            onClose,
+            onFinish,
+            onError,
+          }}
+        />
+      </div>
     {/if}
   </main>
 </div>
@@ -95,5 +115,19 @@
     height: 100%;
     top: 0;
     display: block;
+  }
+  .modal-wrapper {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+  }
+
+  .modal {
+    width: 460px;
+    height: 840px;
+    max-height: 95%;
   }
 </style>

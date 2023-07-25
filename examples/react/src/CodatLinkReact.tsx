@@ -40,8 +40,16 @@ export const CodatLinkReact: React.FC<CodatLinkProps> = (props) => {
   }, [componentMount]);
 
   return (
-    <div className="modal-wrapper">
-      <div className="modal" ref={setComponentMount} />
-    </div>
+    <div
+      className="modal"
+      style={{
+        // CodatLink will take up 100% of the container width and height.
+        // We recommend a size of 460px x 840px.
+        width: "460px",
+        height: "840px",
+      }}
+      data-testId="test"
+      ref={setComponentMount}
+    ></div>
   );
 };
