@@ -1,6 +1,11 @@
 import { CodatLink } from "https://link-sdk.codat.io";
 
 let companyId = "";
+const onConnection = (connection) =>
+  alert(`On connection callback  = ${connection.connectionId}`);
+const onClose = () => closeCallback();
+const onFinish = () => alert("On finish callback");
+const onError = (error) => alert(`On error callback : ${error.message}`);
 
 const linkSdkTarget = document.getElementById("target");
 const submitButton = document.getElementById("modal-button");
@@ -16,11 +21,10 @@ const openModal = () => {
     target: linkSdkTarget,
     props: {
       companyId,
-      onConnection: (connection) =>
-        alert(`On connection callback : ${connection.connectionId}`),
-      onClose: () => closeCallback(),
-      onFinish: () => alert("On finish callback"),
-      onError: (error) => alert(`On error callback : ${error.message}`),
+      onConnection,
+      onClose,
+      onFinish,
+      onError,
     },
   });
 };
