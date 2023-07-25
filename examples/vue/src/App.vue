@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CodatLinkComponent from './components/CodatLinkComponent.vue'
+import CodatLink from './components/CodatLink.vue'
 import { ref } from 'vue'
 import type { ConnectionCallbackArgs, ErrorCallbackArgs } from 'https://link-sdk.codat.io'
 
@@ -58,7 +58,7 @@ const handleOnError = (error: ErrorCallbackArgs) => {
 
     </div>
     <div v-if="modalOpen" class="modalWrapper">
-      <CodatLinkComponent :company-id="companyId" :on-connection="handleOnConnection" :on-close="handleOnClose"
+      <CodatLink :company-id="companyId" :on-connection="handleOnConnection" :on-close="handleOnClose"
         :on-finish="handleOnFinish" :on-error="handleOnError" />
     </div>
   </main>

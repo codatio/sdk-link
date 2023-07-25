@@ -1,6 +1,6 @@
 "use client";
 
-import { CodatLinkComponent } from "./components/CodatLink";
+import { CodatLink } from "./components/CodatLink";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
@@ -83,7 +83,7 @@ export default function Home() {
         />
         {modalOpen && (
           <div className={styles.modalWrapper}>
-            <CodatLinkComponent
+            <CodatLink
               companyId={companyId}
               onConnection={(connection) =>
                 alert(`On connection callback - ${connection.connectionId}`)

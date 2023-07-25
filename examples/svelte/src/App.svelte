@@ -3,7 +3,7 @@
   import Header from "./lib/Header.svelte";
   import welcome_fallback from "./assets/svelte-welcome.png";
   import "./styles.css";
-  import { CodatLinkAction } from "./lib/CodatLinkAction";
+  import CodatLink from "./lib/CodatLink.svelte";
   import type {
     ConnectionCallbackArgs,
     ErrorCallbackArgs,
@@ -66,16 +66,7 @@
     </div>
     {#if modalOpen}
       <div class="modal-wrapper">
-        <div
-          class="modal"
-          use:CodatLinkAction={{
-            companyId,
-            onConnection,
-            onClose,
-            onFinish,
-            onError,
-          }}
-        />
+        <CodatLink {companyId} {onConnection} {onClose} {onError} {onFinish} />
       </div>
     {/if}
   </main>

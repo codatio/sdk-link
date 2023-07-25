@@ -6,4 +6,3 @@
 - [Angular](https://github.com/codatio/sdk-link/tree/main/examples/angular)
 - [Vue](https://github.com/codatio/sdk-link/tree/main/examples/vue)
 - [Svelte](https://github.com/codatio/sdk-link/tree/main/examples/svelte)
-

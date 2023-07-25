@@ -3,7 +3,7 @@ import {
   ErrorCallbackArgs,
 } from "https://link-sdk.codat.io";
 import { useState } from "react";
-import { CodatLinkReact } from "./CodatLinkReact";
+import { CodatLink } from "./components/CodatLink";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -68,7 +68,7 @@ function App() {
       <img src={logo} className="App-logo" alt="logo" />
       {modalOpen && (
         <div className="modal-wrapper">
-          <CodatLinkReact
+          <CodatLink
             companyId={companyId}
             onConnection={onConnection}
             onError={onError}

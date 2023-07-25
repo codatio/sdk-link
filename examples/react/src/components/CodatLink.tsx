@@ -1,10 +1,9 @@
 import {
-  CodatLink,
+  CodatLink as AuthFlow,
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
 } from "https://link-sdk.codat.io";
 import React, { useEffect, useState } from "react";
-import "./CodatLinkReact.css";
 
 export interface CodatLinkProps {
   companyId: string;
@@ -14,7 +13,7 @@ export interface CodatLinkProps {
   onFinish: () => void;
 }
 
-export const CodatLinkReact: React.FC<CodatLinkProps> = (props) => {
+export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   const { companyId, onConnection, onError, onClose, onFinish } = props;
 
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
@@ -24,7 +23,7 @@ export const CodatLinkReact: React.FC<CodatLinkProps> = (props) => {
   useEffect(() => {
     const target = componentMount;
     if (target && target.children.length === 0) {
-      new CodatLink({
+      new AuthFlow({
         target,
         props: {
           companyId,
@@ -41,14 +40,12 @@ export const CodatLinkReact: React.FC<CodatLinkProps> = (props) => {
 
   return (
     <div
-      className="modal"
       style={{
-        // CodatLink will take up 100% of the container width and height.
-        // We recommend a size of 460px x 840px.
+        // Recommended dimensions
         width: "460px",
         height: "840px",
+        maxHeight: "95%",
       }}
-      data-testId="test"
       ref={setComponentMount}
     ></div>
   );

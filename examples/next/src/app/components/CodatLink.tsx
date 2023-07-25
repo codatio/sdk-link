@@ -6,8 +6,6 @@ import type {
 } from "https://link-sdk.codat.io";
 import React, { useEffect, useState } from "react";
 
-import styles from "./CodatLink.module.css";
-
 export interface CodatLinkProps {
   companyId: string;
   onConnection: (args: ConnectionCallbackArgs) => void;
@@ -16,7 +14,7 @@ export interface CodatLinkProps {
   onFinish: () => void;
 }
 
-export const CodatLinkComponent: React.FC<CodatLinkProps> = (props) => {
+export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   const { companyId, onConnection, onError, onClose, onFinish } = props;
 
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
@@ -50,8 +48,12 @@ export const CodatLinkComponent: React.FC<CodatLinkProps> = (props) => {
 
   return (
     <div
-      className={`App ${styles.modalWrapper}`}
-      data-testId="test"
+      style={{
+        // Recommended dimensions
+        width: "460px",
+        height: "840px",
+        maxHeight: "95%",
+      }}
       ref={setComponentMount}
     ></div>
   );

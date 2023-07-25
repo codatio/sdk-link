@@ -5,9 +5,9 @@
 
 <header>
   <div class="corner">
-    <div>
+    <a href="https://svelte.dev/docs/introduction" target="_blank">
       <img src={logo} alt="SvelteKit" />
-    </div>
+    </a>
   </div>
 
   <nav>
@@ -25,9 +25,9 @@
   </nav>
 
   <div class="corner">
-    <div>
+    <a href="https://github.com/codatio/sdk-link" target="_blank">
       <img src={github} alt="GitHub" />
-    </div>
+    </a>
   </div>
 </header>
 
@@ -42,7 +42,7 @@
     height: 3em;
   }
 
-  .corner div {
+  .corner a {
     display: flex;
     align-items: center;
     justify-content: center;

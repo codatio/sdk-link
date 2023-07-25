@@ -18,7 +18,7 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 
 For full instructions on getting started with Next.js, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
 
-1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.tsx" target="_blank">`CodatLink.tsx`</a> file to an appropriate location in your React or TypeScript app.
+1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="./src/app/components/CodatLink.tsx" target="_blank">`CodatLink.tsx`</a> file to an appropriate location in your Next.js app.
 
 2. **Conditional steps**
    

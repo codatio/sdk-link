@@ -18,7 +18,7 @@ declare module "https://link-sdk.codat.io" {
     onConnection: (args: ConnectionCallbackArgs) => void;
   };
 
-  export declare class CodatLink {
+  export class CodatLink {
     constructor(args: { target: HTMLElement; props: CodatLinkProps });
   }
 }
