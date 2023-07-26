@@ -45,7 +45,6 @@ p {
 
 a {
   color: var(--color-theme-1);
-  text-decoration: none;
 }
 
 a:hover {
@@ -107,4 +106,8 @@ button:focus:not(:focus-visible) {
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+input {
+  width: 250px;
 }
