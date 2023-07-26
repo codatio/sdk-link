@@ -63,10 +63,10 @@
     margin: 82px auto 32px;
     width: 460px;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
 
-  input,
-  button,
   ol {
     margin: 0;
     display: block;
@@ -83,7 +83,7 @@
   }
 
   input {
-    width: 100%;
+    width: 250px;
   }
 </style>
 
@@ -99,6 +99,7 @@
 
 <div class="content" role="main">
   <!-- Link SDK -->
+
   <h1>
     <a
       target="_blank"
@@ -107,7 +108,8 @@
       >Link SDK x Angular</a
     >
   </h1>
-  <p>To see the Link SDK, please follow these steps:</p>
+  <p>An example of embedding Link SDK within a brand new Angular project</p>
+
   <ol>
     <li>
       <a
@@ -120,9 +122,22 @@
     </li>
     <li>Paste company ID below</li>
   </ol>
-  <input type="text" [(ngModel)]="companyId" placeholder="Paste your Company ID here" />
-  <button (click)="openLink()">Start authing</button>
-  <app-codat-link [companyId]="companyId" (close)="closeLink()" *ngIf="linkOpen"></app-codat-link>
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="companyId"
+      placeholder="Provide a valid company ID"
+    />
+    <button (click)="openLink()">Start authing</button>
+  </div>
+  <app-codat-link
+    [companyId]="companyId"
+    (connection)="onConnection($event)"
+    (close)="closeLink()"
+    (error)="onError($event)"
+    (finish)="onFinish()"
+    *ngIf="linkOpen"
+  ></app-codat-link>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

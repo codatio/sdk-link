@@ -32,13 +32,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="wrapper" ref="target"></div>
+<!-- Inline styles suggest recommended dimensions -->
+  <div style="width: 460px; height: 840px; max-height: 95%;" ref="target"></div>
 </template>
-
-<style scoped>
-.wrapper {
-  width: 460px;
-  height: 840px;
-  max-height: 95%;
-}
-</style>

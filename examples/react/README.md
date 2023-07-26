@@ -19,7 +19,7 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 
 For full instructions on getting started with React, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
 
-1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="https://github.com/codatio/sdk-link/blob/main/snippets/CodatLink.tsx" target="_blank">`CodatLink.tsx`</a> file to an appropriate location in your React or TypeScript app.
+1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="./src/components/CodatLink.tsx" target="_blank">`CodatLink.tsx`</a> file to an appropriate location in your React or TypeScript app.
 2.  **Conditional steps**
     1. **Extend your type declarations with our types (if using TS)** - download the <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> file, then copy and paste its contents into a new or existing `.d.ts` file.
 

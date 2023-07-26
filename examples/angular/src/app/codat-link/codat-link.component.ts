@@ -7,6 +7,10 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import {
+  ConnectionCallbackArgs,
+  ErrorCallbackArgs,
+} from 'https://link-sdk.codat.io';
 
 @Component({
   selector: 'app-codat-link',
@@ -17,28 +21,35 @@ export class CodatLinkComponent implements AfterViewInit {
   @ViewChild('target') target: ElementRef | undefined;
   @Input() companyId: string | undefined;
   @Output() close = new EventEmitter<void>();
+  @Output() connection = new EventEmitter<ConnectionCallbackArgs>();
+  @Output() error = new EventEmitter<ErrorCallbackArgs>();
+  @Output() finish = new EventEmitter<void>();
 
   ngAfterViewInit() {
     if (this.target && this.companyId) {
       const target = this.target.nativeElement;
       const companyId = this.companyId;
 
-      import('https://link-sdk.codat.io').then(({ CodatLink }) => {
-        new CodatLink({
-          target,
-          props: {
-            companyId,
-            onClose: () => this.close.emit(),
-            onConnection: (connection) =>
-              alert(`On connection callback : ${connection.connectionId}`),
-            onError: (error) => {
-              alert(`On error callback : ${error.message}`);
-              this.close.emit();
+      // webpackIgnore is a magic comment that prevents webpack from
+      //   parsing this dynamic import. The build will fail otherwise.
+      // See https://webpack.js.org/api/module-methods/#magic-comments
+      import(/* webpackIgnore: true */ 'https://link-sdk.codat.io').then(
+        ({ CodatLink }) => {
+          new CodatLink({
+            target,
+            props: {
+              companyId,
+              onClose: () => this.close.emit(),
+              onConnection: (connection) => this.connection.emit(connection),
+              onError: (error) => {
+                this.error.emit(error);
+                this.close.emit();
+              },
+              onFinish: () => this.finish.emit(),
             },
-            onFinish: () => alert('On finish callback'),
-          },
-        });
-      });
+          });
+        }
+      );
     }
   }
 }

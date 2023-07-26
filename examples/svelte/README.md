@@ -1,24 +1,25 @@
-# An example project of embedding Link SDK within a brand new create-next-app application
+# An example project of embedding Link SDK within a brand new Svelte application
 
 ## Running this project
 
-Run the app in the development mode:
+### `npm run dev`
 
-```npm run dev```
+Runs the app in the development mode.\
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-Open [http://localhost:3000](http://localhost:3000).
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
 ## Company ID
-
-You will need to create a company and paste its ID to render the auth flow.
+You need to have created a company first. 
 
 See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank">readme guide</a> on creating a new company.
 
-## Get started with Next.js
+## Get started with Svelte
 
-For full instructions on getting started with Next.js, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
+For full instructions on getting started with svelte, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
 
-1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="./src/app/components/CodatLink.tsx" target="_blank">`CodatLink.tsx`</a> file to an appropriate location in your Next.js app.
+1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="./src/lib/CodatLink.Svelte" target="_blank">`CodatLink.Svelte`</a> file to an appropriate location in your Svelte app.
 
 2. **Conditional steps**
    
