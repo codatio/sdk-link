@@ -1,6 +1,6 @@
 # Framework specific snippets for Link SDK implementation
 
-- [React](../examples/react/src/CodatLink.tsx)
+- [React](../examples/react/src/components/CodatLink.tsx)
 - [Next](../examples/next/src/app/components/CodatLink.tsx)
 - [JavaScript](./CodatLink.mjs)
 - [Angular](../examples/angular/src/app/codat-link/)
