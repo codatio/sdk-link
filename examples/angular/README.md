@@ -18,8 +18,7 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 
 1. **Set up steps**
    1. Copy <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> to the `/src` directory.
-   2. In `tsconfig.json`, set `target` and `module` to `"ESNext"`.
-   3. If you are using content security policy (CSP) headers, you must edit the headers:
+   2. If you are using content security policy (CSP) headers, you must edit the headers:
       * Add `*.codat.io` to all of `(script-src, style-src, font-src, connect-src, img-src)`, or to `default-src`.
       * Add `unsafe-inline` to `style-src`. Do *not* use a hash because this can change at any time without warning.
   
