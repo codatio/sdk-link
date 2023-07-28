@@ -23,16 +23,6 @@ For full instructions on getting started with Next.js, see our [embedded link do
 2. **Conditional steps**
    
     - **Extend your type declarations with our types** - If you are using TypeScript, download the <a href="https://github.com/codatio/sdk-link/blob/main/snippets/types.d.ts" target="_blank"> `types.d.ts`</a> file, then copy and paste its contents into a new or existing `.d.ts` file.
-    
-    - **Update browserslist** - If a `browserslist` entry exists in your `package.json` file, you may need to update it with the following entries for production:
-
-      ```js
-      "production": [
-        ">0.2% and supports es6-module",
-        "not dead",
-        "not and_uc >= 0"
-      ],
-      ```
 
     - **Update CSP headers** - If you're using content security policy (CSP) headers, you must edit the headers:
 

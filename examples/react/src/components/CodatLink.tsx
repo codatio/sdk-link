@@ -1,5 +1,4 @@
-import {
-  CodatLink as AuthFlow,
+import type {
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
 } from "https://link-sdk.codat.io";
@@ -23,16 +22,23 @@ export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   useEffect(() => {
     const target = componentMount;
     if (target && target.children.length === 0) {
-      new AuthFlow({
-        target,
-        props: {
-          companyId,
-          onConnection,
-          onClose,
-          onFinish,
-          onError,
-        },
-      });
+      // webpackIgnore is a magic comment that prevents webpack from
+      //   parsing this dynamic import. The build will fail otherwise.
+      // See https://webpack.js.org/api/module-methods/#magic-comments
+      import(/* webpackIgnore: true */ "https://link-sdk.codat.io").then(
+        ({ CodatLink }) => {
+          new CodatLink({
+            target,
+            props: {
+              companyId,
+              onConnection,
+              onClose,
+              onFinish,
+              onError,
+            },
+          });
+        }
+      );
     }
     // CodatLink does not support changing props after initialisation.
     // eslint-disable-next-line react-hooks/exhaustive-deps
