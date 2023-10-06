@@ -38,7 +38,6 @@ export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   return (
     <div
       style={{
-        // Recommended dimensions
         width: "100%",
         height: "100%",
         maxHeight: "95%",
