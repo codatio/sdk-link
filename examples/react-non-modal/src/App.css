@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color: #61dafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 2em;
+}
+
+input {
+  width: 250px;
+}
+
+a,
+p,
+li::marker {
+  color: #61dafb;
+}
+li::marker {
+  list-style-position: inside;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.modal-wrapper {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+}
+
+.split-view {
+  display: flex;
+}
+
+.split-view > div {
+  flex: 1;
+}
+
+.auth-flow-wrapper {
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 0 0 10px #ccc;
+}
+
+.fallback-wrapper,
+.link-wrapper {
+  padding: 2em 4em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
