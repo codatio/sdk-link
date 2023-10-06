@@ -11,6 +11,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## Company ID
+
 You need to have created a company first. 
 
 See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank">readme guide</a> on creating a new company.
