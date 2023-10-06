@@ -115,10 +115,4 @@
     position: fixed;
     inset: 0;
   }
-
-  .modal {
-    width: 460px;
-    height: 840px;
-    max-height: 95%;
-  }
 </style>

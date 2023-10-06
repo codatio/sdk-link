@@ -4,10 +4,21 @@ import { CodatLink } from "./components/CodatLink";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
+import {
+  ConnectionCallbackArgs,
+  ErrorCallbackArgs,
+} from "https://link-sdk.codat.io";
 
 export default function Home() {
   const [companyId, setCompanyId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
+
+  const onConnection = (connection: ConnectionCallbackArgs) =>
+    alert(`On connection callback - ${connection.connectionId}`);
+  const onClose = () => setModalOpen(false);
+  const onFinish = () => alert("On finish callback");
+  const onError = (error: ErrorCallbackArgs) =>
+    alert(`On error callback - ${error.message}`);
 
   return (
     <main className={styles.main}>
@@ -85,12 +96,10 @@ export default function Home() {
           <div className={styles.modalWrapper}>
             <CodatLink
               companyId={companyId}
-              onConnection={(connection) =>
-                alert(`On connection callback - ${connection.connectionId}`)
-              }
-              onClose={() => setModalOpen(false)}
-              onFinish={() => alert("On finish callback")}
-              onError={(error) => alert(`On error callback -${error.message}`)}
+              onConnection={onConnection}
+              onError={onError}
+              onClose={onClose}
+              onFinish={onFinish}
             />
           </div>
         )}

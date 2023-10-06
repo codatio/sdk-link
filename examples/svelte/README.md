@@ -17,7 +17,7 @@ See <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
 
 ## Get started with Svelte
 
-For full instructions on getting started with svelte, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
+For full instructions on getting started with Svelte, see our [embedded link documentation](https://docs.codat.io/auth-flow/authorize-embedded-link).
 
 1. **Create a component that mounts the SDK** - you can copy and paste the example <a href="./src/lib/CodatLink.Svelte" target="_blank">`CodatLink.Svelte`</a> file to an appropriate location in your Svelte app.
 
