@@ -1,16 +1,6 @@
-import type {
-  ConnectionCallbackArgs,
-  ErrorCallbackArgs,
-} from "https://link-sdk.codat.io";
 import React, { useEffect, useState } from "react";
 
-export interface CodatLinkProps {
-  companyId: string;
-  onConnection: (args: ConnectionCallbackArgs) => void;
-  onError: (args: ErrorCallbackArgs) => void;
-  onClose: () => void;
-  onFinish: () => void;
-}
+import type { CodatLinkProps } from "https://link-sdk.codat.io";
 
 export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   const { companyId, onConnection, onError, onClose, onFinish } = props;
