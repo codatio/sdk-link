@@ -20,7 +20,7 @@ declare module "https://link-sdk.codat.io" {
     onError: (args: ErrorCallbackArgs) => void;
     onFinish: () => void;
     onConnection: (args: ConnectionCallbackArgs) => void;
-    options: CodatLinkOptions;
+    options?: CodatLinkOptions;
   };
 
   export class CodatLink {

@@ -10,12 +10,17 @@ declare module "https://link-sdk.codat.io" {
     userRecoverable: boolean;
   }
 
+  export type CodatLinkOptions = {
+    nonModal?: boolean;
+  }
+
   export type CodatLinkProps = {
     companyId: string;
     onClose: () => void;
     onError: (args: ErrorCallbackArgs) => void;
     onFinish: () => void;
     onConnection: (args: ConnectionCallbackArgs) => void;
+    options?: CodatLinkOptions;
   };
 
   export class CodatLink {
