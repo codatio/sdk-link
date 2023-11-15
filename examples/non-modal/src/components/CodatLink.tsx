@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
 
-import type { CodatLinkProps } from "https://link-sdk.codat.io";
+import { CodatLinkProps, initializeCodatLink } from "@codat/sdk-link-types";
 
-export const CodatLink: React.FC<CodatLinkProps> = (props) => {
-  const { companyId, onConnection, onError, onClose, onFinish, options } = props;
-
+export const CodatLink: React.FC<CodatLinkProps> = (props: CodatLinkProps) => {
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
     null
   );
@@ -12,24 +11,7 @@ export const CodatLink: React.FC<CodatLinkProps> = (props) => {
   useEffect(() => {
     const target = componentMount;
     if (target && target.children.length === 0) {
-      // webpackIgnore is a magic comment that prevents webpack from
-      //   parsing this dynamic import. The build will fail otherwise.
-      // See https://webpack.js.org/api/module-methods/#magic-comments
-      import(/* webpackIgnore: true */ "https://link-sdk.codat.io").then(
-        ({ CodatLink }) => {
-          new CodatLink({
-            target,
-            props: {
-              companyId,
-              onConnection,
-              onClose,
-              onFinish,
-              onError,
-              options,
-            },
-          });
-        }
-      );
+      initializeCodatLink(target, props);
     }
     // CodatLink does not support changing props after initialisation.
     // eslint-disable-next-line react-hooks/exhaustive-deps

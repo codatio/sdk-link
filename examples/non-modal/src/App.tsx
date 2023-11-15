@@ -1,8 +1,7 @@
-import {
-  ConnectionCallbackArgs,
-  ErrorCallbackArgs,
-} from "https://link-sdk.codat.io";
 import { useState } from "react";
+
+import { ConnectionCallbackArgs, ErrorCallbackArgs } from "@codat/sdk-link-types";
+
 import { CodatLink } from "./components/CodatLink";
 
 import logo from "./logo.svg";
