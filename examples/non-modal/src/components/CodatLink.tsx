@@ -22,7 +22,6 @@ export const CodatLink: React.FC<CodatLinkProps> = (props: CodatLinkProps) => {
       style={{
         width: "100%",
         height: "100%",
-        maxHeight: "95%",
       }}
       ref={setComponentMount}
     ></div>
