@@ -9,6 +9,7 @@
 - [Vue](./languages/vue)
 - [Svelte](./languages/svelte)
 
-## Variants
+## Options examples
 
 - [Embedding in a non-modal view](./non-modal)
+- - [Supporting different locales](./locales)
