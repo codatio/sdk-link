@@ -1,4 +1,6 @@
-# An example project of embedding Link SDK within a brand new create-react-app application in a non-modal view
+# An example project featuring different locale support
+
+As part of the options endpoint, a large amount of the text in embedded link can be overridden. One application of this would be partial support for different language locales, allowing you to support users in different geographies.
 
 ## Running this project
 
