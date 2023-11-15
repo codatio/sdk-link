@@ -12,4 +12,4 @@
 ## Options examples
 
 - [Embedding in a non-modal view](./non-modal)
-- - [Supporting different locales](./locales)
+   [Supporting different locales](./locales)
