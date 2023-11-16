@@ -77,7 +77,10 @@ function App() {
                 onError={onError}
                 onClose={onClose}
                 onFinish={onFinish}
-                options={{nonModal: true}}
+                options={{
+                  nonModal: true,
+                  showSandboxIntegrations: process.env.NODE_ENV === 'development',
+                }}
               />
             </div>
           )

@@ -140,7 +140,10 @@ function App() {
               onError={onError}
               onClose={onClose}
               onFinish={onFinish}
-              options={{text: locales[locale as keyof localeType]}}
+              options={{
+                text: locales[locale as keyof localeType],
+                showSandboxIntegrations: process.env.NODE_ENV === 'development',
+              }}
             />
           </div>
         )
