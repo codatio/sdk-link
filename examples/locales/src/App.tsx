@@ -30,16 +30,16 @@ const locales: localeType = {
   fr: {
     "companyName": "Link SDK example",
     "landing.title": "Partagez vos informations financières",
-    "landing.subtitle": "Afin de compléter votre candidature, vous devrez vous connecter à votre logiciel de comptabilité (tel que Xero, QuickBooks, Sage, etc.) et télécharger des copies de vos relevés bancaires et autres pièces justificatives.<br/><br/>Veuillez parlez à votre gestionnaire de compte pour plus d’informations.",
+    "landing.subtitle": "Afin de compléter votre requête, vous devrez vous connecter à votre logiciel de comptabilité (tel que Xero, QuickBooks, Sage, etc.) et télécharger des copies de vos relevés bancaires et autres pièces justificatives.<br/><br/>Veuillez contacter votre comptable pour plus d'informations.",
     "main.title": "Partagez vos informations financières",
-    "main.subtitle": "Pour poursuivre votre candidature, veuillez suivre les étapes suivantes",
+    "main.subtitle": "Pour poursuivre votre requête, veuillez suivre les étapes suivantes",
     "accounting.fileUpload.subtitle": "Vous pouvez télécharger les fichiers PDF, Excel ou CSV demandés ci-dessous.",
     "banking.fileUpload.subtitle": "Vous pouvez télécharger les fichiers PDF, Excel ou CSV demandés ci-dessous.",
     "businessDocuments.fileUpload.subtitle": "Vous pouvez télécharger les fichiers PDF, Excel ou CSV demandés ci-dessous.",
     "accounting.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
     "banking.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
     "commerce.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
-  },
+  }
   es: {
     "companyName": "Link SDK example",
     "landing.title": "Comparte tu información financiera",
