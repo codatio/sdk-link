@@ -7,7 +7,7 @@ import { useState } from "react";
 import {
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
-} from "https://link-sdk.codat.io";
+} from "@codat/sdk-link-types";
 
 export default function Home() {
   const [companyId, setCompanyId] = useState("");
