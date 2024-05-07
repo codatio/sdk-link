@@ -1,5 +1,7 @@
 # sdk-link
 
+[![NPM Version](https://img.shields.io/npm/v/@codat/sdk-link-types.svg?style=flat)]()
+
 Authorization is a key part of any solution built with Codat. Each of your SMB customers must authorize access to their data before you can use that data. A frictionless and reassuring auth flow is essential for receiving the authorization from your SMB customers.
 
 Use our Link SDK component and embed our Link auth flow in your application.
