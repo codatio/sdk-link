@@ -2,7 +2,9 @@
 
 Authorization is a key part of any solution built with Codat. Each of your SMB customers must authorize access to their data before you can use that data. A frictionless and reassuring auth flow is essential for receiving the authorization from your SMB customers.
 
-To achieve this, use our Link SDK component and embed our Link auth flow in your application.
+Use our Link SDK component and embed our Link auth flow in your application.
+
+[Examples](https://github.com/codatio/sdk-link/tree/main/examples) | [Full docs](https://docs.codat.io/auth-flow/overview)
 
 ## Configure your auth flow
 
