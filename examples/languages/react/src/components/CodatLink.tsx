@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { CodatLinkProps, initializeCodatLink } from "@codat/sdk-link-types";
 
+import "./CodatLink.css";
+
 export const CodatLink: React.FC<CodatLinkProps> = (props: CodatLinkProps) => {
   const [componentMount, setComponentMount] = useState<HTMLDivElement | null>(
     null
@@ -17,14 +19,8 @@ export const CodatLink: React.FC<CodatLinkProps> = (props: CodatLinkProps) => {
   }, [componentMount]);
 
   return (
-    <div
-      style={{
-        // Recommended dimensions
-        width: "460px",
-        height: "840px",
-        maxHeight: "95%",
-      }}
-      ref={setComponentMount}
-    ></div>
+    <div className="modal-wrapper">
+      <div className="modal" ref={setComponentMount}/>
+    </div>
   );
 };

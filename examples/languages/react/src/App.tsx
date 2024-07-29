@@ -67,15 +67,13 @@ function App() {
       </div>
       <img src={logo} className="App-logo" alt="logo" />
       {modalOpen && (
-        <div className="modal-wrapper">
-          <CodatLink
-            companyId={companyId}
-            onConnection={onConnection}
-            onError={onError}
-            onClose={onClose}
-            onFinish={onFinish}
-          />
-        </div>
+        <CodatLink
+          companyId={companyId}
+          onConnection={onConnection}
+          onError={onError}
+          onClose={onClose}
+          onFinish={onFinish}
+        />
       )}
     </div>
   );

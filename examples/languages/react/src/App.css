@@ -32,12 +32,3 @@ li::marker {
   height: 40vmin;
   pointer-events: none;
 }
-
-.modal-wrapper {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  inset: 0;
-}
