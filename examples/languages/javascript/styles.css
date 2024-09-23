@@ -33,6 +33,10 @@ input {
   max-height: 95%;
 }
 
+#link-completed {
+  display: none;
+}
+
 a,
 p,
 li::marker {

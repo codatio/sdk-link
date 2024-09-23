@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Link SDK X JavaScript</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://github.com/codatio/sdk-link/tree/main/examples/javascript/README.md"
-        >
-          Link SDK X JavaScript
-        </a>
-      </h1>
-      <p>
-        An example of embedding Link SDK within a brand new HTML, CSS and
-        JavaScript project
-      </p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Link SDK X JavaScript</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header>
+  <h1>
+    <a
+      target="_blank"
+      rel="noreferrer"
+      href="https://github.com/codatio/sdk-link/tree/main/examples/javascript/README.md"
+    >
+      Link SDK X JavaScript
+    </a>
+  </h1>
+  <p>
+    An example of embedding Link SDK within a brand new HTML, CSS and
+    JavaScript project
+  </p>
+</header>
 
-    <div>
-      <ol>
-        <li>
-          <a
-            href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Create a company
-          </a>
-        </li>
-        <li>
-          Paste the company ID below
-        </li>
-      </ol>
-      <div class="input-wrapper">
-        <input id="company-id-input" placeholder="Provide a valid company ID" />
-        <button id="modal-button">Start authing</button>
-      </div>
+<div id="link-completed">
+  <p>Thank you for sharing your data</p>
+  <button id="connect-again">Connect again</button>
+</div>
 
-      <div class="modal-wrapper">
-        <div id="target" class="modal" />
-      </div>
-    </div>
-    <script type="module" src="./link-sdk.mjs" />
-  </body>
+<div id="linking-instructions">
+  <ol>
+    <li>
+      <a
+        href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Create a company
+      </a>
+    </li>
+    <li>Paste the company ID below</li>
+  </ol>
+  <div class="input-wrapper">
+    <input id="company-id-input" placeholder="Provide a valid company ID" />
+    <button id="modal-button">Start authing</button>
+  </div>
+
+  <div class="modal-wrapper">
+    <div id="target" class="modal" />
+  </div>
+</div>
+
+<script type="module" src="./link-sdk.mjs" />
+</body>
 </html>
