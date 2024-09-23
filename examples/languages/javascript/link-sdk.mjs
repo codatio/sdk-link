@@ -11,10 +11,21 @@ const closeCallback = () => {
 };
 
 const onClose = () => closeCallback();
-const onConnection = (connection) =>
-  alert(`On connection callback  = ${connection.connectionId}`);
-const onFinish = () => alert("On finish callback");
-const onError = (error) => alert(`On error callback : ${error.message}`);
+const onConnection = (connection) => {
+  // Perform any logic here that should happen when a connection is linked
+  console.log(`New connection linked with ID: ${connection.connectionId}`);
+}
+const onFinish = () => {
+  onClose();
+  // TODO conditionally render a success message
+}
+const onError = (error) => (error) => {
+  // this error should be logged in your error tracking service
+  console.error(`Codat Link SDK error`, error);
+  if (!error.userRecoverable) {
+    onClose();
+  }
+}
 
 const openModal = () => {
   linkSdkTarget.style.pointerEvents = "initial";

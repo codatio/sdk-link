@@ -5,27 +5,27 @@ import type { ConnectionCallbackArgs, ErrorCallbackArgs } from 'https://link-sdk
 
 const companyId = ref('')
 const modalOpen = ref(false)
+const isFinished = ref(false);
 
-const handleCloseModal = () => {
+const handleOnConnection = (connection: ConnectionCallbackArgs) => {
+  // Perform any logic here that should happen when a connection is linked
+  console.log(`New connection linked with ID: ${connection.connectionId}`);}
+
+const handleOnClose = () => {
   modalOpen.value = false
 }
 
-const handleOnConnection = (connection: ConnectionCallbackArgs) => {
-  alert(`On connection callback - ${connection.connectionId}`)
-}
-
-const handleOnClose = () => {
-  handleCloseModal()
-}
-
 const handleOnFinish = () => {
-  alert('On finish callback')
-  handleCloseModal()
+  handleOnClose();
+  isFinished.value = true;
 }
 
 const handleOnError = (error: ErrorCallbackArgs) => {
-  alert(`On error callback -${error.message}`)
-  handleCloseModal()
+  // this error should be logged in your error tracking service
+  console.error(`Codat Link SDK error`, error);
+  if (!error.userRecoverable) {
+    handleOnClose();
+  }
 }
 </script>
 
@@ -41,21 +41,26 @@ const handleOnError = (error: ErrorCallbackArgs) => {
     </header>
     <div class="content">
       <p>An example of embedding Link SDK within a brand new create-vue project</p>
-      <ol>
-        <li>
-          <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank" rel="noreferrer">
-            Create a company
-          </a>
-        </li>
-        <li>Paste the company ID below</li>
-      </ol>
-      <div class="inputWrapper">
-        <input type="text" v-model="companyId" placeholder="Provide a valid company ID" />
-        <button @click="modalOpen = !modalOpen">
-          {{ modalOpen ? 'Exit' : 'Start authing' }}
-        </button>
+      <div v-if="isFinished">
+        <p>Thank you for sharing your data</p>
+        <button @click="isFinished = false">Connect again</button>
       </div>
-
+      <div v-if="!isFinished">
+        <ol>
+          <li>
+            <a href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company" target="_blank" rel="noreferrer">
+              Create a company
+            </a>
+          </li>
+          <li>Paste the company ID below</li>
+        </ol>
+        <div class="inputWrapper">
+          <input type="text" v-model="companyId" placeholder="Provide a valid company ID" />
+          <button @click="modalOpen = !modalOpen">
+            {{ modalOpen ? 'Exit' : 'Start authing' }}
+          </button>
+        </div>
+      </div>
     </div>
     <div v-if="modalOpen" class="modalWrapper">
       <CodatLink :company-id="companyId" :on-connection="handleOnConnection" :on-close="handleOnClose"
