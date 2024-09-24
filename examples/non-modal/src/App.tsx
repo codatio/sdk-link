@@ -10,13 +10,25 @@ import "./App.css";
 function App() {
   const [companyId, setCompanyId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
 
-  const onConnection = (connection: ConnectionCallbackArgs) =>
-    alert(`On connection callback - ${connection.connectionId}`);
+  const onConnection = (connection: ConnectionCallbackArgs) => {
+    // Perform any logic here that should happen when a connection is linked
+    console.log(`New connection linked with ID: ${connection.connectionId}`);
+  }
   const onClose = () => setModalOpen(false);
-  const onFinish = () => alert("On finish callback");
-  const onError = (error: ErrorCallbackArgs) =>
-    alert(`On error callback - ${error.message}`);
+  const onFinish = () => {
+    onClose();
+    setIsFinished(true);
+  }
+  const onError = (error: ErrorCallbackArgs) => {
+    // this error should be logged in your error tracking service
+    console.error(`Codat Link SDK error`, error);
+    if (!error.userRecoverable) {
+      onClose();
+    }
+  }
+
 
   return (
     <div className="split-view">
@@ -60,7 +72,10 @@ function App() {
                 setCompanyId(e.target.value);
               }}
             />
-            <button onClick={() => setModalOpen(!modalOpen)}>
+            <button onClick={() => {
+              setIsFinished(false);
+              setModalOpen(!modalOpen);
+            }}>
               {modalOpen ? "Exit" : "Start authing"}
             </button>
           </div>
@@ -86,7 +101,7 @@ function App() {
           )
           : <div className="fallback-wrapper">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>Enter a company ID</p>
+            {isFinished? <p>Thank you for sharing your data</p> :<p>Enter a company ID</p>}
           </div>
         }
       </div>

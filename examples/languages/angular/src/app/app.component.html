@@ -10,8 +10,8 @@
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
@@ -105,30 +105,36 @@
       target="_blank"
       rel="noreferrer"
       href="https://github.com/codatio/sdk-link/blob/main/examples/angular/README.md"
-      >Link SDK x Angular</a
+    >Link SDK x Angular</a
     >
   </h1>
   <p>An example of embedding Link SDK within a brand new Angular project</p>
 
-  <ol>
-    <li>
-      <a
-        href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Create a company
-      </a>
-    </li>
-    <li>Paste company ID below</li>
-  </ol>
-  <div>
-    <input
-      type="text"
-      [(ngModel)]="companyId"
-      placeholder="Provide a valid company ID"
-    />
-    <button (click)="openLink()">Start authing</button>
+  <div *ngIf="linkFinished">
+    <p>Thank you for sharing your data</p>
+    <button (click)="reset()">Connect again</button>
+  </div>
+  <div *ngIf="!linkFinished">
+    <ol>
+      <li>
+        <a
+          href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Create a company
+        </a>
+      </li>
+      <li>Paste company ID below</li>
+    </ol>
+    <div>
+      <input
+        type="text"
+        [(ngModel)]="companyId"
+        placeholder="Provide a valid company ID"
+      />
+      <button (click)="openLink()">Start authing</button>
+    </div>
   </div>
   <app-codat-link
     [companyId]="companyId"

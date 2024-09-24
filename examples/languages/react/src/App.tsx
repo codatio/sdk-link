@@ -2,8 +2,8 @@ import {
   ConnectionCallbackArgs,
   ErrorCallbackArgs,
 } from "@codat/sdk-link-types";
-import { useState } from "react";
-import { CodatLink } from "./components/CodatLink";
+import {useState} from "react";
+import {CodatLink} from "./components/CodatLink";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -11,13 +11,24 @@ import "./App.css";
 function App() {
   const [companyId, setCompanyId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
 
-  const onConnection = (connection: ConnectionCallbackArgs) =>
-    alert(`On connection callback - ${connection.connectionId}`);
+  const onConnection = (connection: ConnectionCallbackArgs) => {
+    // Perform any logic here that should happen when a connection is linked
+    console.log(`New connection linked with ID: ${connection.connectionId}`);
+  }
   const onClose = () => setModalOpen(false);
-  const onFinish = () => alert("On finish callback");
-  const onError = (error: ErrorCallbackArgs) =>
-    alert(`On error callback - ${error.message}`);
+  const onFinish = () => {
+    onClose();
+    setIsFinished(true);
+  }
+  const onError = (error: ErrorCallbackArgs) => {
+    // this error should be logged in your error tracking service
+    console.error(`Codat Link SDK error`, error);
+    if (!error.userRecoverable) {
+      onClose();
+    }
+  }
 
   return (
     <div className="App">
@@ -37,35 +48,42 @@ function App() {
         </p>
       </header>
 
-      <div>
-        <ol>
-          <li>
-            <a
-              href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Create a company
-            </a>
-          </li>
-          <li>
-            <a>Paste the company ID below</a>
-          </li>
-        </ol>
-        <div className="input-wrapper">
-          <input
-            value={companyId}
-            placeholder="Provide a valid company ID"
-            onChange={(e) => {
-              setCompanyId(e.target.value);
-            }}
-          />
-          <button onClick={() => setModalOpen(!modalOpen)}>
-            {modalOpen ? "Exit" : "Start authing"}
-          </button>
+      {isFinished ? (
+        <div>
+          <p>Thank you for sharing your data</p>
+          <button onClick={() => setIsFinished(false)}>Connect again</button>
         </div>
-      </div>
-      <img src={logo} className="App-logo" alt="logo" />
+      ) : (
+        <div>
+          <ol>
+            <li>
+              <a
+                href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Create a company
+              </a>
+            </li>
+            <li>
+              <a>Paste the company ID below</a>
+            </li>
+          </ol>
+          <div className="input-wrapper">
+            <input
+              value={companyId}
+              placeholder="Provide a valid company ID"
+              onChange={(e) => {
+                setCompanyId(e.target.value);
+              }}
+            />
+            <button onClick={() => setModalOpen(!modalOpen)}>
+              {modalOpen ? "Exit" : "Start authing"}
+            </button>
+            ))
+          </div>
+        </div>)}
+      <img src={logo} className="App-logo" alt="logo"/>
       {modalOpen && (
         <div className="modal-wrapper">
           <CodatLink

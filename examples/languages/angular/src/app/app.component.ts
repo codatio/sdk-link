@@ -12,6 +12,7 @@ import {
 export class AppComponent {
   companyId = '';
   linkOpen = false;
+  linkFinished = false;
 
   openLink() {
     if (this.companyId) {
@@ -24,14 +25,24 @@ export class AppComponent {
   }
 
   onConnection(connection: ConnectionCallbackArgs) {
-    alert(`On connection callback : ${connection.connectionId}`);
+    // Perform any logic here that should happen when a connection is linked
+    console.log(`New connection linked with ID: ${connection.connectionId}`);
   }
 
   onError(error: ErrorCallbackArgs) {
-    alert(`On error callback : ${error.message}`);
+    // this error should be logged in your error tracking service
+    console.error(`Codat Link SDK error`, error);
+    if (!error.userRecoverable) {
+      this.closeLink();
+    }
   }
 
   onFinish() {
-    alert('On finish callback');
+    this.closeLink();
+    this.linkFinished = true;
+  }
+
+  reset() {
+    this.linkFinished = false;
   }
 }

@@ -1,8 +1,8 @@
-import { useState } from "react";
+import {useState} from "react";
 
-import { ConnectionCallbackArgs, ErrorCallbackArgs, CodatTextOptions } from "@codat/sdk-link-types";
+import {ConnectionCallbackArgs, ErrorCallbackArgs, CodatTextOptions} from "@codat/sdk-link-types";
 
-import { CodatLink } from "./components/CodatLink";
+import {CodatLink} from "./components/CodatLink";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -39,7 +39,7 @@ const locales: localeType = {
     "accounting.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
     "banking.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
     "commerce.dataAccess.consent": "En continuant, vous autorisez l'accès aux informations du compte. Veuillez vous référer aux [Conditions générales et politique de confidentialité](https://docs.codat.io/).",
-  }
+  },
   es: {
     "companyName": "Link SDK example",
     "landing.title": "Comparte tu información financiera",
@@ -59,17 +59,28 @@ function App() {
   const [companyId, setCompanyId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [locale, setLocale] = useState("default");
+  const [isFinished, setIsFinished] = useState(false);
 
   const changeLocale = (event: any) => {
     setLocale(event.target.value);
   };
 
-  const onConnection = (connection: ConnectionCallbackArgs) =>
-    alert(`On connection callback - ${connection.connectionId}`);
+  const onConnection = (connection: ConnectionCallbackArgs) => {
+    // Perform any logic here that should happen when a connection is linked
+    console.log(`New connection linked with ID: ${connection.connectionId}`);
+  }
   const onClose = () => setModalOpen(false);
-  const onFinish = () => alert("On finish callback");
-  const onError = (error: ErrorCallbackArgs) =>
-    alert(`On error callback - ${error.message}`);
+  const onFinish = () => {
+    onClose();
+    setIsFinished(true);
+  }
+  const onError = (error: ErrorCallbackArgs) => {
+    // this error should be logged in your error tracking service
+    console.error(`Codat Link SDK error`, error);
+    if (!error.userRecoverable) {
+      onClose();
+    }
+  }
 
   return (
     <div className="App">
@@ -89,49 +100,54 @@ function App() {
         </p>
       </header>
 
-      <div>
-        <label>
-          Select locale
-
-          <select value={locale} onChange={changeLocale}>
-            {
-              Object.keys(locales).map(key => {
-                return (
-                  <option value={key}>{key}</option>
-                )
-              })
-            }
-          </select>
-        </label>
-        <ol>
-          <li>
-            <a
-              href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Create a company
-            </a>
-          </li>
-          <li>
-            <a>Paste the company ID below</a>
-          </li>
-        </ol>
-        <div className="input-wrapper">
-          <input
-            value={companyId}
-            placeholder="Provide a valid company ID"
-            onChange={(e) => {
-              setCompanyId(e.target.value);
-            }}
-          />
-          <button onClick={() => setModalOpen(!modalOpen)}>
-            {modalOpen ? "Exit" : "Start authing"}
-          </button>
+      {isFinished ? <div>
+          <p>Thank you for sharing your data</p>
+          <button onClick={() => setIsFinished(false)}>Connect again</button>
         </div>
-      </div>
+        :
+        <div>
+          <label>
+            Select locale
 
-      {modalOpen 
+            <select value={locale} onChange={changeLocale}>
+              {
+                Object.keys(locales).map(key => {
+                  return (
+                    <option value={key}>{key}</option>
+                  )
+                })
+              }
+            </select>
+          </label>
+          <ol>
+            <li>
+              <a
+                href="https://github.com/codatio/sdk-link/tree/main#create-a-new-company"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Create a company
+              </a>
+            </li>
+            <li>
+              <a>Paste the company ID below</a>
+            </li>
+          </ol>
+          <div className="input-wrapper">
+            <input
+              value={companyId}
+              placeholder="Provide a valid company ID"
+              onChange={(e) => {
+                setCompanyId(e.target.value);
+              }}
+            />
+            <button onClick={() => setModalOpen(!modalOpen)}>
+              {modalOpen ? "Exit" : "Start authing"}
+            </button>
+          </div>
+        </div>
+      }
+      {modalOpen
         && (
           <div className="modal-wrapper">
             <CodatLink
